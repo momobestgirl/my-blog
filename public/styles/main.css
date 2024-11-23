@@ -224,7 +224,7 @@ p {
     font-size: 20px;
 }
 
-@media (min-width: 288px){
+@media (min-width: 258px){
     .navbar {
         width: 100%;
     }
