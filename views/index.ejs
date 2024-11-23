@@ -17,7 +17,7 @@
                     <div class="button">
                         <a href="/post/<%=index %>">See More</a>
                         <a href="/edit/<%=index %>">Edit Post</a>
-                        <form action="/delete/<%=index %>">
+                        <form action="/delete/<%= index %>?_method=DELETE" method="POST">
                             <button type="submit" class="btnDelete">Delete</button>
                         </form>
                     </div>
