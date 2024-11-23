@@ -226,7 +226,7 @@ p {
 
 @media (min-width: 288px){
     .navbar {
-        width: 120%;
+        width: 100%;
     }
 
     .container{
