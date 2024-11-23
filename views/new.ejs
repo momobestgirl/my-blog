@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+    <h2 class="newH2">Create a New Post</h2>
+    <form action="/new" method="POST" class="newForm">
+        <label for="title">Title:
+            <input type="text" id="title" name="title" placeholder="Enter Your Title.." required>
+        </label>
+        <br>
+        <label for="content">Content:
+            <textarea id="content" name="content" placeholder="Enter your Content Here.." required></textarea>
+        </label>
+        <div class="center">
+            <button type="submit" class="btnDelete">Submit</button>
+        </div>
+    </form>
+    <a href="/" class="return">Return to Home</a>
+
+<%- include("partials/footer.ejs") %>
