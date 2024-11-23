@@ -1,11 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
+import methodOverride from "method-override";
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(express.static("public"));
+app.use(methodOverride('_method'));
 app.set('view engine','ejs');
 
 console.log(new Date().toString());
@@ -89,9 +91,13 @@ app.post("/edit/:id", (req,res) => {
 
 //Deleting a post
 
-app.post("/delete/:id", (req,res) => {
-    posts.splice(req.params.id,1);
-    res.redirect("/");
+app.delete("/delete/:id", (req, res) => {
+    const postId = parseInt(req.params.id);  // Convert the ID to an integer
+    if (isNaN(postId) || postId < 0 || postId >= posts.length) {
+        return res.status(404).send("Post not found");
+    }
+    posts.splice(postId, 1);  // Remove the post at the given index
+    res.redirect("/");  // Redirect back to the homepage
 });
 
 app.listen(port, () => {
